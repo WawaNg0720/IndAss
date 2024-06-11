@@ -13,22 +13,21 @@ headers = ["ID", "IC Number", "Password", "Gender", "Married Status", "No. of Ch
            "Contribution to SOCSO", "Expenses on Charging Facilities for Electric Vehicle (Not for business use)",
            "Total Relief", "Taxable Income", "Tax", "Tax Rate"]
 
+dtypes = {"Password": str, "IC Number": str, "Gender": object, "Married Status": object, "Disabled?": object, "ID": object,
+          "Working Status for Spouse": object, "Disability for Spouse": object,
+          "Eligibility for Tax": object, "Individual Relief": object, 
+          "Medical Treatment, Special Needs & Carer Expenses for Parents": object, 
+          "Purchase of Basic Supporting Equipment for Disabled Self, Spouse, Child or Parent": object,
+          "Disabled Individual": object, "Total Education Fees for Self": object, "Total Medical Expenses": object,
+          "Lifestyle Expenses": object, "Additional Lifestyle Expenses": object, "Purchase of Breastfeeding Equipment": object,
+          "Child Care Fees": object, "Net Deposit in SSPN": object, "Husband/Wife/Alimony Payments": object,
+          "Disabled Husband/Wife": object, "Total Child Relief": object, "Total Life insurance and EPF": object,
+          "Deferred Annuity and Private Retirement Scheme (PRS)": object, "Education & Medical Insurance": object,
+          "Contribution to SOCSO": object, "Expenses on Charging Facilities for Electric Vehicle (Not for business use)": object,
+          "Total Relief": object, "Taxable Income": object, "Tax": object, "Tax Rate": object}
+
 def save_to_csv(data, filename):
     df = pd.DataFrame(data, columns=headers)
-    
-    dtypes = {"Password": str, "IC Number": str, "Gender": object,
-              "Married Status": object, "Disabled?": object, "ID": object,
-              "Working Status for Spouse": object, "Disability for Spouse": object,
-              "Eligibility for Tax": object, "Individual Relief": object, 
-              "Medical Treatment, Special Needs & Carer Expenses for Parents": object, 
-              "Purchase of Basic Supporting Equipment for Disabled Self, Spouse, Child or Parent": object,
-              "Disabled Individual": object, "Total Education Fees for Self": object, "Total Medical Expenses": object,
-              "Lifestyle Expenses": object, "Additional Lifestyle Expenses": object, "Purchase of Breastfeeding Equipment": object,
-              "Child Care Fees": object, "Net Deposit in SSPN": object, "Husband/Wife/Alimony Payments": object,
-              "Disabled Husband/Wife": object, "Total Child Relief": object, "Total Life insurance and EPF": object,
-              "Deferred Annuity and Private Retirement Scheme (PRS)": object, "Education & Medical Insurance": object,
-              "Contribution to SOCSO": object, "Expenses on Charging Facilities for Electric Vehicle (Not for business use)": object,
-              "Total Relief": object, "Taxable Income": object, "Tax": object, "Tax Rate": object}
     
     # Check if the file exists
     if os.path.isfile(filename):
@@ -167,20 +166,6 @@ def eligibility_tax(user_id, ic_number, gender, married, children, disabled, wor
                     purchase_breastfeeding, child_care_fees, sspn, payment_alimony, 
                     disabled_spouse_relief, total_child_relief, total_life_epf, prs,
                     edu_medical_insurance, socso, exp_vehicle_electric, total_tax_relief, taxable_income, tax, tax_rate, filename):
-    
-    dtypes = {"Password": str, "IC Number": str, "Gender": object,
-              "Married Status": object, "Disabled?": object, "ID": object,
-              "Working Status for Spouse": object, "Disability for Spouse": object,
-              "Eligibility for Tax": object, "Individual Relief": object, 
-              "Medical Treatment, Special Needs & Carer Expenses for Parents": object, 
-              "Purchase of Basic Supporting Equipment for Disabled Self, Spouse, Child or Parent": object,
-              "Disabled Individual": object, "Total Education Fees for Self": object, "Total Medical Expenses": object,
-              "Lifestyle Expenses": object, "Additional Lifestyle Expenses": object, "Purchase of Breastfeeding Equipment": object,
-              "Child Care Fees": object, "Net Deposit in SSPN": object, "Husband/Wife/Alimony Payments": object,
-              "Disabled Husband/Wife": object, "Total Child Relief": object, "Total Life insurance and EPF": object,
-              "Deferred Annuity and Private Retirement Scheme (PRS)": object, "Education & Medical Insurance": object,
-              "Contribution to SOCSO": object, "Expenses on Charging Facilities for Electric Vehicle (Not for business use)": object,
-              "Total Relief": object, "Taxable Income": object, "Tax": object, "Tax Rate": object}
     
     df = pd.read_csv(filename, dtype=dtypes)
     
